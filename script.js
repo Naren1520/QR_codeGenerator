@@ -4,8 +4,6 @@ const generateBtn = document.querySelector("#generate");
 const downloadBtn = document.querySelector("#download");
 const qrSize = document.querySelector("#sizes");
 
-//using https://davidshimjs.github.io/qrcodejs/
-
 generateBtn.addEventListener("click", (e)=>{
     e.preventDefault();         //prevents default submission or refreshing
     if(qrText.value.length > 0){
