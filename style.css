@@ -1,0 +1,102 @@
+:root{
+    --bcg-color: rgba(165, 11, 127, 0.925);
+    --box-color: rgb(22, 188, 230);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bcg-color);
+}
+.box{
+    background-color: var(--box-color);
+    padding: 30px;
+    width: 400px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.qr_header h1{
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+.qr_header input{
+    margin-block: 12px;
+    width: 100%;
+}
+.qr_header input, select{
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #7fb7c9;
+}
+.qr_header label{
+    font-size: 20px;
+    color: white;
+}
+.qr_header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.qr_footer{
+    display: flex;
+    justify-content: center;
+}
+.qr_footer a{   
+    background-color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 14px 36px;
+    margin-inline: 2px;
+    color: var(--box-color);
+    font-weight: 600;
+    border-radius: 8px;
+}
+.qr_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.qr_body img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-block: 10px;
+    padding: 20px;
+    border: 1px solid var(--bcg-color);
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 520px) {
+    .box {
+        width: 80%;
+    }
+    .qr_footer a{
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+footer{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--bcg-color); /* Optional: for better visibility */
+    padding: 10px 0;              /* Optional: for spacing */
+}
