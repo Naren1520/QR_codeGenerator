@@ -34,29 +34,18 @@ function generateQRCode(){
         colorDark: "#000000",
         colorLight: "#ffffff"
     });
+}; 
+//document.querySelector(".qr_body img")
 
-    setTimeout(() => {
-        let img = qrContainer.querySelector('img');
-        if(img){
-            downloadBtn.setAttribute('href', img.src);
-            downloadBtn.setAttribute('download', 'N_QRCode.png');
-        } else {
-            let canvas = qrContainer.querySelector('canvas');
-            if(canvas){
-                downloadBtn.setAttribute('href', canvas.toDataURL("image/png"));
-                downloadBtn.setAttribute('download', 'N_QRCode.png');
-            }
-        }
-    }, 300); // wait for QRCode to render
-}
-
-downloadBtn.addEventListener('click', (e)=>{
-    let href = downloadBtn.getAttribute('href');
-    if(!href){
-        e.preventDefault();
-        alert("Please generate a QR code first!");
+downloadBtn.addEventListener("click", ()=>{
+    let img = document.querySelector(".qr_body img");
+    if(img !== null){
+        let imgSrc = img.getAttribute("src");
+        downloadBtn.setAttribute("href", imgSrc);
     }
-});
-
+    else{
+        alert("No QR code found to download");
+    }
+})
 
 
