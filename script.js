@@ -34,30 +34,29 @@ function generateQRCode(){
         colorDark: "#000000",
         colorLight: "#ffffff"
     });
-}; 
-//document.querySelector(".qr_body img")
 
-downloadBtn.addEventListener('click', ()=>{
-    let img =document.querySelector('.qr_body img');
-
-    if(img !== null){
-        let imgSrc = img.getAttribute('src');
-        downloadBtn.setAttribute('href', imgSrc);
-    }
-    else{
-        downloadBtn.setAttribute("href",`${document.querySelector('canvas').toDataURL()}`);
-    }
-})
-
-downloadBtn.addEventListener('click', function(e) {
-    const img = qrBody.querySelector('img');
-    if (img) {
-        downloadBtn.href = img.src;
-    } else {
-        const canvas = qrBody.querySelector('canvas');  //i used to make mobile friendly (canvas format)
-        if (canvas) {
-            downloadBtn.href = canvas.toDataURL("image/png");
+    setTimeout(() => {
+        let img = qrContainer.querySelector('img');
+        if(img){
+            downloadBtn.setAttribute('href', img.src);
+            downloadBtn.setAttribute('download', 'N_QRCode.png');
+        } else {
+            let canvas = qrContainer.querySelector('canvas');
+            if(canvas){
+                downloadBtn.setAttribute('href', canvas.toDataURL("image/png"));
+                downloadBtn.setAttribute('download', 'N_QRCode.png');
+            }
         }
+    }, 300); // wait for QRCode to render
+}
+
+downloadBtn.addEventListener('click', (e)=>{
+    let href = downloadBtn.getAttribute('href');
+    if(!href){
+        e.preventDefault();
+        alert("Please generate a QR code first!");
     }
 });
+
+
 
