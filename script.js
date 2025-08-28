@@ -37,6 +37,18 @@ function generateQRCode(){
 }; 
 //document.querySelector(".qr_body img")
 
+downloadBtn.addEventListener('click', ()=>{
+    let img =document.querySelector('.qr_body img');
+
+    if(img !== null){
+        let imgSrc = img.getAttribute('src');
+        downloadBtn.setAttribute('href', imgSrc);
+    }
+    else{
+        downloadBtn.setAttribute("href",`${document.querySelector('canvas').toDataURL()}`);
+    }
+})
+
 downloadBtn.addEventListener('click', function(e) {
     const img = qrBody.querySelector('img');
     if (img) {
