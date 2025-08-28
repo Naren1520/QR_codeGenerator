@@ -37,13 +37,15 @@ function generateQRCode(){
 }; 
 //document.querySelector(".qr_body img")
 
-downloadBtn.addEventListener("click", ()=>{
-    let img = document.querySelector(".qr_body img");
-    if(img !== null){
-        let imgSrc = img.getAttribute("src");
-        downloadBtn.setAttribute("href", imgSrc);
+downloadBtn.addEventListener('click', function(e) {
+    const img = qrBody.querySelector('img');
+    if (img) {
+        downloadBtn.href = img.src;
+    } else {
+        const canvas = qrBody.querySelector('canvas');  //i used to make mobile friendly (canvas format)
+        if (canvas) {
+            downloadBtn.href = canvas.toDataURL("image/png");
+        }
     }
-    else{
-        alert("No QR code found to download");
-    }
-})
+});
+

@@ -71,10 +71,17 @@ body{
     padding: 20px;
 }
 
-.qr_body img,
+.qr_body img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-block: 10px;
+    padding: 20px;
+    border: 1px solid var(--bcg-color);
+    border-radius: 8px;
+}
 .qr_body canvas {
-    max-width: 90vw;   /* fit within 90% of viewport width */
-    max-height: 90vw;  /* keep it square */
+    max-width: 80vw;   /* fit within 80% of viewport width */
+    max-height: 80vw;  /* keep it square */
     width: auto;
     height: auto;
     margin-block: 10px;
